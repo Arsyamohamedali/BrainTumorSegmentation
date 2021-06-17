@@ -13,3 +13,4 @@ opencv-python-headless
 pillow==8.2.0
 scipy==1.6.2
 tensorflow-cpu
+gunicorn
