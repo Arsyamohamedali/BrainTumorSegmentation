@@ -1,0 +1,27 @@
+
+.button {
+	margin-left:5%;
+	font-size:20px;
+	margin: 0 auto;
+	display: block;
+	width: 250px;
+        border-radius:8px;
+        border: 1px solid #D0B49F;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button4 {
+ 	 background-color: #D0B49F;
+ 	 color: white;
+}
+
+.button4:hover {
+	background-color: white;
+	color: #523A28;
+}
+
+@font-face{
+font-family: 'Custom';
+src: url('fonts/Cinzel-Bold.ttf') 
+format("truetype");
+}
