@@ -123,7 +123,7 @@ card_content2 = [
 
 index_page = html.Div([
         
-        html.H1("CT Segmentation and Classification", style = {'textAlign':'center', 'color':'black', 'font-family':'Custom'}),
+        html.H1("Brain Tumor Segmentation and Classification", style = {'textAlign':'center', 'color':'black', 'font-family':'Custom'}),
         html.Br(),
         html.Br(),
         dbc.CardDeck([
