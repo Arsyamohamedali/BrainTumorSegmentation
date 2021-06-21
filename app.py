@@ -24,7 +24,6 @@ server = app.server
 
 a = 'No image uploaded!'
 
-
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     
@@ -266,7 +265,13 @@ def storing(name, age, gender, referee):
                Output('display_gender', 'children'),
                Output('display_referee', 'children'),
                Output('a', 'children'),
-               Output('display_predicted_img','src')],
+               Output('display_predicted_img','src'),
+               Output('name', 'clear_data'),
+               Output('age', 'clear_data'),
+               Output('gender', 'clear_data'),
+               Output('referee', 'clear_data'),
+               Output('image', 'clear_data'),
+               Output('pred_image', 'clear_data')],
               [Input('btn', 'n_clicks'),
                Input('btn_1', 'n_clicks')],
               [State('image', 'data'),
@@ -275,14 +280,18 @@ def storing(name, age, gender, referee):
               State('gender', 'data'),
               State('referee', 'data'),
               State('pred_image','data')])
+    
 def display_page(n_clicks, n_clicks1, img, name, age,gender, referee, pred_img):
+    global a
     trigger = dash.callback_context.triggered[0]
     if (trigger['prop_id'].split('.')[0] == 'btn'):
-        return page_1_layout, True, False,False, img, name, age,gender, referee, a, pred_img
+        return page_1_layout, True, False,False, img, name, age,gender, referee, a, pred_img,False,False,False,False,False,False
     elif (trigger['prop_id'].split('.')[0] == 'btn_1'):
-        return index_page, False, True,True,  dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update
+        a = "No image uploaded!"
+        return index_page, False, True,True,  dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update,True,True,True,True,True,True
     else:
-        return index_page, False, True,True, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update
+        a = "No image uploaded!"
+        return index_page, False, True,True, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update,True,True,True,True,True,True
 
 
 
@@ -312,9 +321,10 @@ def update_output(list_of_contents):
         _, buffer = cv2.imencode('.png', blendedimg)
         encstring =  'data:image/png;base64,{}'.format(base64.b64encode(buffer).decode('utf-8'))
         
+        
         return  encstring1,encstring1,encstring,label
     
-    else:
+    else:  
         return dash.no_update,dash.no_update,dash.no_update,dash.no_update
 
 app.clientside_callback(
