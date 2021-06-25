@@ -237,7 +237,7 @@ def make_prediction(img):
 @app.callback(Output('Date','children'),
               [Input('interval-component','n_intervals')])
 def update_date(n):
-    return [html.P('Updated: '+str(datetime.datetime.now().strftime("%d-%m-%Y %H:%M")))]
+    return [html.P('Updated: '+str(datetime.datetime.now().strftime("%d-%m-%Y")))]
 
 @app.callback([Output('name', 'data'),
                Output('age', 'data'),
