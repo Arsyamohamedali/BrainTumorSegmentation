@@ -154,7 +154,7 @@ patient_details_card = [
             
             html.Hr(),
             dbc.Row([
-                dbc.Col(html.H5("Your Brain CT ", className="card-title"))
+                dbc.Col(html.H5("Your Brain MRI ", className="card-title"))
                 ]),
             html.Br(),
             dbc.Row([
@@ -174,7 +174,7 @@ jumbotron = dbc.Jumbotron(
                 ),
                 html.H1(id = 'a', className="display-3"),
                 html.Hr(className="my-2"),
-                html.H3([dbc.Badge("Segmented CT Image", color = "info", className="ml-1")]),
+                html.H3([dbc.Badge("Segmented MRI Image", color = "info", className="ml-1")]),
                 dbc.CardImg(id = 'display_predicted_img',  style = {'height': '250px' , 'width': '250px','margin': '0 auto','display': 'block'}),
             ],
             fluid=True,
